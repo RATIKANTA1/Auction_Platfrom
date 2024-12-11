@@ -18,6 +18,15 @@ config({
   path: "./config/config.env",
 });
 
+// CORS configuration
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,  // Allow requests only from your front-end URL
+    methods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],  // Include 'OPTIONS'
+    credentials: true,  // Allow credentials (cookies, etc.)
+    allowedHeaders: ["Content-Type", "Authorization"],  // Allow necessary headers
+  })
+);
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
