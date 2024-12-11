@@ -131,7 +131,7 @@ export const login = (data) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   try {
-    const response = await axios.get(
+    const response = await axios.post(
       "https://auction-platfrom.onrender.com/api/v1/user/logout",
       { withCredentials: true }
     );
